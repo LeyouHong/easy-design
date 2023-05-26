@@ -1,3 +1,5 @@
+/* eslint-disable testing-library/no-node-access */
+/* eslint-disable testing-library/no-container */
 import React from "react";
 import { config } from "react-transition-group";
 import { render, fireEvent, screen } from "@testing-library/react";
