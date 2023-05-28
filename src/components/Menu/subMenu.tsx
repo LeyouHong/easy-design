@@ -8,6 +8,8 @@ import React, {
 import classNames from "classnames";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuItem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 export interface SubMenuProps {
   index?: string;
@@ -26,6 +28,8 @@ const SubMenu: FC<SubMenuProps> = ({ index, title, children, className }) => {
   const [menuOpen, setOpen] = useState(isOpened);
   const classes = classNames("menu-item submenu-item", className, {
     "is-active": context.index === index,
+    "is-opened": menuOpen,
+    "is-vertical": context.mode === "vertical",
   });
 
   const handleClick = (e: React.MouseEvent) => {
@@ -84,6 +88,7 @@ const SubMenu: FC<SubMenuProps> = ({ index, title, children, className }) => {
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
         {title}
+        <FontAwesomeIcon icon={faAngleDown} className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>
