@@ -6,6 +6,7 @@ export default {
   title: "Menu",
   id: "Menu",
   component: Menu,
+  tags: ["autodocs"],
   subcomponents: { SubMenu: Menu.SubMenu, Item: Menu.Item },
 } as Meta;
 
