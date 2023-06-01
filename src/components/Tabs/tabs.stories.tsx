@@ -20,11 +20,11 @@ const Template: StoryFn<typeof Tabs> = (args) => (
   </Tabs>
 );
 
-export const lineTabs = Template.bind({});
-lineTabs.storyName = "line tabs";
+export const LineTabs = Template.bind({});
+LineTabs.storyName = "line tabs";
 
-export const cardTabs = Template.bind({});
-cardTabs.args = {
+export const CardTabs = Template.bind({});
+CardTabs.args = {
   type: "card",
 };
-cardTabs.storyName = "card tabs";
+CardTabs.storyName = "card tabs";
