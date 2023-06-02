@@ -1,0 +1,22 @@
+//npm run build-ts
+{
+  "compilerOptions": {
+    "outDir": "build",
+    //ESNext
+    //import { valueOfPi } from "./constants";
+    //export const twoPi = valueOfPi * 2;
+    "module": "esnext",
+    //转换成es5
+    "target": "es5",
+    //For: export let helloWorld = "hi";
+    "declaration": true,
+    "jsx": "react",
+    //https://typescript.bootcss.com/module-resolution.html
+    //编译器会尝试定位表示导入模块的文件。 编译会遵循下列二种策略之一：Classic或Node。
+    "moduleResolution": "node",
+    //开启默认import
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.test.tsx", "src/**/*.stories.tsx"]
+}

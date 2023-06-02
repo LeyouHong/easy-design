@@ -25,9 +25,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "clean": "rimraf ./build",
+    "build": "npm run clean && npm run build-ts && npm run build-css",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build-ts": "tsc -p tsconfig.build.json",
+    "build-css": "node-sass ./src/styles/index.scss ./build/index.css",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -65,6 +68,7 @@
     "babel-plugin-named-exports-order": "0.0.2",
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "15.8.1",
+    "rimraf": "^5.0.1",
     "storybook": "7.0.18",
     "webpack": "5.84.1"
   }
