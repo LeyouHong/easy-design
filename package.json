@@ -1,6 +1,9 @@
 {
   "name": "@leyouhong/easydesign",
   "version": "0.1.1",
+  "engines": {
+    "node": "17.x"
+  },
   "description": "React components library",
   "author": "Leyou Hong",
   "private": false,
