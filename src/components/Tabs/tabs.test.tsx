@@ -1,3 +1,9 @@
+/* eslint-disable testing-library/no-render-in-setup */
+/* eslint-disable testing-library/prefer-presence-queries */
+/* eslint-disable testing-library/no-node-access */
+/* eslint-disable testing-library/no-container */
+/* eslint-disable testing-library/prefer-screen-queries */
+/* eslint-disable testing-library/render-result-naming-convention */
 import React from "react";
 import { render, fireEvent, RenderResult } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
