@@ -1,14 +1,14 @@
 ### Install
 
 ~~~javascript
-npm install easydesign --save
+npm i @leyouhong/easydesign
 ~~~
 
 ### how to use
 
 ~~~javascript
 import 'easydesign/dist/index.css'
-import { Button } from 'easydesign'
+import { Button } from '@leyouhong/easydesign'
 
 //run storybook
 npm run stroybook
