@@ -6,7 +6,8 @@ name: Node.js CI
 on:
   push:
     branches: [ "main" ]
-    - main
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -25,10 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: |
-        npm install
-        npm run build-storybook
- 
+    - run: npm install
+    - run: npm run build-storybook
+
     - name: Deploy with gh-pages
       run: |
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
