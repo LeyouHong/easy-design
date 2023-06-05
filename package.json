@@ -1,9 +1,6 @@
 {
   "name": "@leyouhong/easydesign",
-  "version": "0.1.1",
-  "engines": {
-    "node": "17.x"
-  },
+  "version": "0.1.2",
   "description": "React components library",
   "author": "Leyou Hong",
   "private": false,
@@ -16,7 +13,7 @@
     "UI",
     "React"
   ],
-  "homepage": "https://github.com/LeyouHong/easy-design",
+  "homepage": "https://leyouhong.github.io/easydesign",
   "repository": {
     "type": "git",
     "url": "https://github.com/LeyouHong/easy-design"
@@ -36,6 +33,7 @@
     "react-dom": ">=16.8.0"
   },
   "scripts": {
+    "deploy": "npm run build-storybook && gh-pages -d storybook-static",
     "start": "react-scripts start",
     "lint": "eslint --ext js,ts,tsx src --max-warnings 0",
     "clean": "rimraf ./dist",
@@ -95,6 +93,7 @@
     "babel-plugin-named-exports-order": "0.0.2",
     "cross-env": "^7.0.3",
     "eslint-plugin-storybook": "^0.6.12",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "node-sass": "^9.0.0",
     "prop-types": "15.8.1",

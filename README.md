@@ -7,7 +7,7 @@ npm i @leyouhong/easydesign
 ### how to use
 
 ~~~javascript
-import 'easydesign/dist/index.css'
+import '@leyouhong/easydesign/dist/index.css'
 import { Button } from '@leyouhong/easydesign'
 
 //run storybook
