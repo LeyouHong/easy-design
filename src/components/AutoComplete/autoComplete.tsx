@@ -12,8 +12,7 @@ import Input, { InputProps } from "../Input/input";
 import Transition from "../Transition/transition";
 import useDebounce from "../../hooks/useDebounce";
 import useClickOutside from "../../hooks/useClickOutside";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import Icon from "../Icon/icon";
 
 interface DataSourceObject {
   value: string;
@@ -135,7 +134,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         <ul className="easy-suggestion-list">
           {loading && (
             <div className="suggstions-loading-icon">
-              <FontAwesomeIcon icon={faSpinner} />
+              <Icon icon="spinner" spin />
             </div>
           )}
           {suggestions.map((item, index) => {

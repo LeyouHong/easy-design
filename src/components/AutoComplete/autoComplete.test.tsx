@@ -19,11 +19,11 @@ import {
 } from "./autoComplete";
 
 config.disabled = true;
-// jest.mock("../Icon/icon", () => {
-//   return (props: any) => {
-//     return <span onClick={props.onClick}>{props.icon}</span>;
-//   };
-// });
+jest.mock("../Icon/icon", () => {
+  return (props: any) => {
+    return <span onClick={props.onClick}>{props.icon}</span>;
+  };
+});
 const testArray = [
   { value: "ab", number: 11 },
   { value: "abc", number: 1 },

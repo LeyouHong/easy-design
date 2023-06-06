@@ -1,8 +1,7 @@
 import React, { FC, ReactNode, useContext } from "react";
 import classNames from "classnames";
 import { SelectContext } from "./select";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import Icon from "../Icon";
 
 export interface SelectOptionProps {
   index?: string;
@@ -44,7 +43,7 @@ export const Option: FC<SelectOptionProps> = ({
       onClick={(e) => handleClick(e, value, isSelected)}
     >
       {children || (label ? label : value)}
-      {multiple && isSelected && <FontAwesomeIcon icon={faCheck} />}
+      {multiple && isSelected && <Icon icon="check" />}
     </li>
   );
 };

@@ -8,8 +8,7 @@ import React, {
 import classNames from "classnames";
 import { MenuContext } from "./menu";
 import { MenuItemProps } from "./menuItem";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import Icon from "../Icon";
 
 export interface SubMenuProps {
   index?: string;
@@ -93,7 +92,7 @@ export const SubMenu: FC<SubMenuProps> = ({
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
         {title}
-        <FontAwesomeIcon icon={faAngleDown} className="arrow-icon" />
+        <Icon icon="angle-down" className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>

@@ -1,8 +1,7 @@
 import React, { FC, useState } from "react";
 import classNames from "classnames";
 import Transition from "../Transition";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import Icon from "../Icon";
 
 export type AlertType = "success" | "default" | "danger" | "warning";
 
@@ -40,7 +39,7 @@ export const Alert: FC<AlertProps> = (props) => {
             onClick={handleClose}
             title="alert-fire-event"
           >
-            <FontAwesomeIcon icon={faXmark} />
+            <Icon icon="times" />
           </span>
         )}
       </div>

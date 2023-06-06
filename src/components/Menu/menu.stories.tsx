@@ -35,6 +35,6 @@ export const COpenedMenu = Template.bind({});
 COpenedMenu.args = {
   defaultIndex: "0",
   mode: "vertical",
-  defaultOpenSubMenus: ["2"],
+  defaultOpenSubMenus: ["3"],
 };
 COpenedMenu.storyName = "defaultOpen Menu";

@@ -27,7 +27,7 @@ BDisabled.storyName = "disabled Input";
 export const CIcon = Template.bind({});
 CIcon.args = {
   placeholder: "Search input",
-  search: true,
+  icon: "search",
 };
 CIcon.storyName = "Search Input";
 

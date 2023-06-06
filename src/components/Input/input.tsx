@@ -5,8 +5,8 @@ import React, {
   forwardRef,
 } from "react";
 import classNames from "classnames";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import Icon from "../Icon/icon";
 
 type InputSize = "lg" | "sm";
 
@@ -16,13 +16,12 @@ export interface InputProps
   size?: InputSize;
   prepend?: string | ReactElement;
   append?: string | ReactElement;
-  search?: boolean;
+  icon?: IconProp;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const { disabled, size, search, prepend, append, style, ...restProps } =
-    props;
+  const { disabled, size, icon, prepend, append, style, ...restProps } = props;
 
   const cnames = classNames("easy-input-wrapper", {
     [`input-size-${size}`]: size,
@@ -45,9 +44,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   return (
     <div className={cnames} style={style}>
       {prepend && <div className="easy-input-group-prepend">{prepend}</div>}
-      {search && (
+      {icon && (
         <div className="icon-wrapper">
-          <FontAwesomeIcon icon={faSearch} />
+          <Icon icon={icon} title={`title-${icon}`} />
         </div>
       )}
       <input

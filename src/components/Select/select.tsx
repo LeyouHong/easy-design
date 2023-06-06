@@ -12,8 +12,7 @@ import Input from "../Input";
 import useClickOutside from "../../hooks/useClickOutside";
 import Transition from "../Transition/transition";
 import { SelectOptionProps } from "./option";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import Icon from "../Icon";
 
 export interface SelectProps {
   defaultValue?: string | string[];
@@ -149,6 +148,7 @@ export const Select: FC<SelectProps> = (props) => {
           placeholder={placeholder}
           value={value}
           readOnly
+          icon="angle-down"
           disabled={disabled}
           name={name}
         />
@@ -167,8 +167,8 @@ export const Select: FC<SelectProps> = (props) => {
             return (
               <span className="easy-tag" key={`tag-${index}`}>
                 {value}
-                <FontAwesomeIcon
-                  icon={faXmark}
+                <Icon
+                  icon="times"
                   onClick={() => {
                     handleOptionClick(value, true);
                   }}
