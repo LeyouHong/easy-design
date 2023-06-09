@@ -44,6 +44,7 @@ export const SpinnerPrimary = Template.bind({});
 SpinnerPrimary.args = {
   icon: "spinner",
   size: "3x",
+  spin: true,
 };
 SpinnerPrimary.storyName = "Spinner Primary Icon";
 
@@ -51,5 +52,6 @@ export const SpinnerSuccess = Template.bind({});
 SpinnerSuccess.args = {
   icon: "spinner",
   size: "3x",
+  pulse: true,
 };
 SpinnerSuccess.storyName = "Spinner Success Icon";
