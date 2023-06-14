@@ -1,4 +1,4 @@
-@mixin button-size($padding-y, $padding-x, $font-size, $border-raduis) {
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
     padding: $padding-y $padding-x;
     font-size: $font-size;
     border-radius: $border-radius;
@@ -67,17 +67,29 @@
   }
 }
 
-@mixin border-right-radius($raduis) {
-  border-top-right-radius: $raduis;
-  border-bottom-right-radius: $raduis;
+@mixin border-right-radius($radius) {
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
 }
 
-@mixin border-left-radius($raduis) {
-  border-top-left-radius: $raduis;
-  border-bottom-left-radius: $raduis;
+@mixin border-left-radius($radius) {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
 }
 
-@mixin border-top-radius($raduis) {
-  border-top-left-radius: $raduis;
-  border-top-right-radius: $raduis;
+@mixin border-top-radius($radius) {
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
+@mixin switch-size($width, $height, $font-size, $border-radius) {
+  width: $width;
+  height: $height;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+@mixin switch-inner($inner-size) {
+  width: $inner-size;
+  height: $inner-size;
 }

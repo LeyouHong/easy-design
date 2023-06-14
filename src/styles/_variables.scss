@@ -310,3 +310,29 @@ $nav-tabs-link-active-color:        $primary !default;
 $nav-tabs-link-active-bg:           $body-bg !default;
 $nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
 $nav-tabs-content-margin:           1rem !default;
+
+//Switch
+$switch-font-weight:             400;
+$switch-font-family:             $font-family-base !default;
+$switch-font-size:               $font-size-base !default;
+$switch-font-color:              $white !default;
+$switch-line-height:             $line-height-base !default;
+$switch-background-color:        $primary !default;
+$switch-inner-background-color:  $white !default;
+$switch-inner-border-radius:     50% !default;
+$switch-transition:              all .3s linear;
+
+//Switch 不同大小按钮的 padding 和 font size
+// $switch-width-sm:                28px!default;
+$switch-width-sm:                max-content !default;
+$switch-height-sm:               16px !default;
+$switch-font-size-sm:            12px !default;
+$switch-border-radius-sm:        10px !default;
+$switch-inner-size-sm:           16px;
+
+// $switch-width-lg:                44px !default;
+$switch-width-lg:                max-content !default;
+$switch-height-lg:               22px !default;
+$switch-font-size-lg:            16px !default;
+$switch-border-radius-lg:        15px !default;
+$switch-inner-size-lg:           22px;

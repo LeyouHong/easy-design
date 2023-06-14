@@ -1,0 +1,100 @@
+.easy-switch {
+    border: none;
+    background-color: #aaa;
+    border-radius: 30px;
+    box-sizing: content-box;
+    transition: $switch-transition;
+
+    .inner {
+        display: inline-block;
+        background-color: $switch-inner-background-color;
+        border-radius: $switch-inner-border-radius;
+        transition: $switch-transition;
+
+        svg {
+            position: relative;
+            top: -1px;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.easy-switch.is-disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.switch-sm.is-checked {
+    background-color: $switch-background-color;
+
+    .inner {
+        margin-left: 4px;
+    }
+}
+
+.switch-lg.is-checked {
+    background-color: $switch-background-color;
+
+    .inner {
+        margin-left: 6px;
+    }
+}
+
+.switch-sm.not-checked {
+    .inner {
+        margin-right: 4px;
+    }
+}
+
+.switch-lg.not-checked {
+    .inner {
+        margin-right: 6px;
+    }
+}
+
+.switch-lg {
+    padding: 4px;
+    @include switch-size( $switch-width-lg,  $switch-height-lg,  $switch-font-size-lg, $switch-border-radius-lg);
+    .inner {
+        @include switch-inner($switch-inner-size-lg);
+    }
+
+    .easy-switch-right,
+    .easy-switch-left {
+        line-height: 20px;
+        color: #fff;
+    }
+
+    .easy-switch-right {
+        padding-right: 2px;
+    }
+
+    .easy-switch-left {
+        padding-left: 2px;
+    }
+}
+
+.switch-sm {
+    padding: 2px;
+    @include switch-size( $switch-width-sm,  $switch-height-sm,  $switch-font-size-sm, $switch-border-radius-sm);
+    .inner {
+        @include switch-inner($switch-inner-size-sm);
+    }
+
+    .easy-switch-right,
+    .easy-switch-left {
+        line-height: 16px;
+        color: #fff;
+    }
+
+    .easy-switch-right {
+        padding-right: 2px;
+    }
+
+    .easy-switch-left {
+        padding-left: 2px;
+    }
+}
