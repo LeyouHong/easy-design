@@ -5,11 +5,11 @@ import React, {
   FC,
   ReactNode,
   FunctionComponentElement,
-} from "react";
-import classNames from "classnames";
-import { MenuItemProps } from "./menuItem";
+} from 'react';
+import classNames from 'classnames';
+import { MenuItemProps } from './menuItem';
 
-type MenuMode = "horizontal" | "vertical";
+type MenuMode = 'horizontal' | 'vertical';
 type SelectCallback = (selectedIndex: string) => void;
 
 export interface MenuProps {
@@ -22,14 +22,14 @@ export interface MenuProps {
   defaultOpenSubMenus?: string[];
 }
 
-interface IMenuContext {
+interface MenuContextType {
   index: string;
   onSelect?: SelectCallback;
   mode?: MenuMode;
   defaultOpenSubMenus?: string[];
 }
 
-export const MenuContext = createContext<IMenuContext>({ index: "0" });
+export const MenuContext = createContext<MenuContextType>({ index: '0' });
 
 export const Menu: FC<MenuProps> = (props) => {
   const {
@@ -43,9 +43,9 @@ export const Menu: FC<MenuProps> = (props) => {
   } = props;
   const [currentActive, setActive] = useState(defaultIndex);
 
-  const classes = classNames("easy-menu", className, {
-    "menu-vertical": mode === "vertical",
-    "menu-horizontal": mode !== "vertical",
+  const classes = classNames('easy-menu', className, {
+    'menu-vertical': mode === 'vertical',
+    'menu-horizontal': mode !== 'vertical',
   });
 
   const handleClick = (index: string) => {
@@ -55,27 +55,26 @@ export const Menu: FC<MenuProps> = (props) => {
     }
   };
 
-  const passedContext: IMenuContext = {
-    index: currentActive || "0",
+  const passedContext: MenuContextType = {
+    index: currentActive || '0',
     onSelect: handleClick,
     mode,
     defaultOpenSubMenus,
   };
 
-  //老夫用这个函数，可以自动给MenuItem加上index属性
+  // 老夫用这个函数，可以自动给MenuItem加上index属性
   const renderChildren = () => {
     return React.Children.map(children, (child, index) => {
       const childElement = child as FunctionComponentElement<MenuItemProps>;
       const { displayName } = childElement.type;
-      if (displayName === "MenuItem" || displayName === "SubMenu") {
+      if (displayName === 'MenuItem' || displayName === 'SubMenu') {
         return React.cloneElement(childElement, {
           index: index.toString(),
         });
-      } else {
-        console.error(
-          "Warning: Menu has a child which is not a MenuItem component."
-        );
       }
+      console.error(
+        'Warning: Menu has a child which is not a MenuItem component.',
+      );
     });
   };
 
@@ -89,8 +88,8 @@ export const Menu: FC<MenuProps> = (props) => {
 };
 
 Menu.defaultProps = {
-  defaultIndex: "0",
-  mode: "horizontal",
+  defaultIndex: '0',
+  mode: 'horizontal',
   defaultOpenSubMenus: [],
 };
 

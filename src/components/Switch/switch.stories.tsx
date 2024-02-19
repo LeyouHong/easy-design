@@ -1,12 +1,11 @@
-import type { Meta, StoryFn } from "@storybook/react";
-import Switch from "./switch";
-import Icon from "../Icon";
-import React from "react";
+import type { Meta, StoryFn } from '@storybook/react';
+import Switch from './switch';
+import Icon from '../Icon';
 
 const meta = {
-  title: "Switch",
+  title: 'Switch',
   component: Switch,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 } satisfies Meta<typeof Switch>;
 
 export default meta;
@@ -14,29 +13,29 @@ export default meta;
 const Template: StoryFn<typeof Switch> = (args) => <Switch {...args} />;
 
 export const ADefaultSwitch = Template.bind({});
-ADefaultSwitch.storyName = "default switch";
+ADefaultSwitch.storyName = 'default switch';
 
 export const BDisabledSwitch = Template.bind({});
 BDisabledSwitch.args = {
   checked: true,
   disabled: true,
 };
-BDisabledSwitch.storyName = "disabled switch";
+BDisabledSwitch.storyName = 'disabled switch';
 
 export const CWithTextSwitch = Template.bind({});
 CWithTextSwitch.args = {
   defaultChecked: true,
-  size: "lg",
-  checkedComponent: "open",
-  unCheckedComponent: "close",
+  size: 'lg',
+  checkedComponent: 'open',
+  unCheckedComponent: 'close',
 };
-CWithTextSwitch.storyName = "with text switch ";
+CWithTextSwitch.storyName = 'with text switch ';
 
 export const CWithIconSwitch = Template.bind({});
 CWithIconSwitch.args = {
   defaultChecked: true,
-  size: "sm",
+  size: 'sm',
   checkedComponent: <Icon icon="times" />,
   unCheckedComponent: <Icon icon="search" />,
 };
-CWithIconSwitch.storyName = "with icon switch ";
+CWithIconSwitch.storyName = 'with icon switch ';

@@ -1,4 +1,4 @@
-import React, {
+import {
   FC,
   useState,
   ChangeEvent,
@@ -6,22 +6,22 @@ import React, {
   ReactElement,
   useEffect,
   useRef,
-} from "react";
-import classNames from "classnames";
-import Input, { InputProps } from "../Input/input";
-import Transition from "../Transition/transition";
-import useDebounce from "../../hooks/useDebounce";
-import useClickOutside from "../../hooks/useClickOutside";
-import Icon from "../Icon/icon";
+} from 'react';
+import classNames from 'classnames';
+import Input, { InputProps } from '../Input/input';
+import useDebounce from '../../hooks/useDebounce';
+import useClickOutside from '../../hooks/useClickOutside';
+import Icon from '../Icon/icon';
+import Transition from '../Transition';
 
 interface DataSourceObject {
   value: string;
 }
-export type DataSourceType<T = {}> = T & DataSourceObject;
+export type DataSourceType<T = object> = T & DataSourceObject;
 export interface AutoCompleteProps
-  extends Omit<InputProps, "onSelect" | "onChange"> {
+  extends Omit<InputProps, 'onSelect' | 'onChange'> {
   fetchSuggestions: (
-    str: string
+    str: string,
   ) => DataSourceType[] | Promise<DataSourceType[]>;
   onSelect?: (item: DataSourceType) => void;
   onChange?: (value: string) => void;
@@ -103,7 +103,6 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   };
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
-    console.log("triggered the value", value);
     setInputValue(value);
     if (onChange) {
       onChange(value);
@@ -138,8 +137,8 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
             </div>
           )}
           {suggestions.map((item, index) => {
-            const cnames = classNames("suggestion-item", {
-              "is-active": index === highlightIndex,
+            const cnames = classNames('suggestion-item', {
+              'is-active': index === highlightIndex,
             });
             return (
               <li

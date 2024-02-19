@@ -1,6 +1,5 @@
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
-import AutoComplete, { DataSourceType } from "./autoComplete";
+import { Meta, StoryFn } from '@storybook/react';
+import AutoComplete, { DataSourceType } from './autoComplete';
 
 interface AutoCompleteDataProps {
   value: string;
@@ -14,10 +13,10 @@ interface GithubUserProps {
 }
 
 export default {
-  title: "AutoComplete",
-  id: "AutoComplete",
+  title: 'AutoComplete',
+  id: 'AutoComplete',
   component: AutoComplete,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 } as Meta;
 
 const Template: StoryFn<typeof AutoComplete> = (args) => (
@@ -25,28 +24,28 @@ const Template: StoryFn<typeof AutoComplete> = (args) => (
 );
 
 const animals = [
-  { id: 0, value: "hamster" },
-  { id: 1, value: "cat" },
-  { id: 2, value: "Dog" },
-  { id: 3, value: "Pig" },
-  { id: 4, value: "Horse" },
-  { id: 5, value: "cow" },
-  { id: 6, value: "lion" },
-  { id: 7, value: "deer" },
-  { id: 8, value: "fox" },
+  { id: 0, value: 'hamster' },
+  { id: 1, value: 'cat' },
+  { id: 2, value: 'Dog' },
+  { id: 3, value: 'Pig' },
+  { id: 4, value: 'Horse' },
+  { id: 5, value: 'cow' },
+  { id: 6, value: 'lion' },
+  { id: 7, value: 'deer' },
+  { id: 8, value: 'fox' },
 ];
 const handleFetch = (query: string) => {
   return animals.filter((item) =>
-    item.value.toLowerCase().includes(query.toLowerCase())
+    item.value.toLowerCase().includes(query.toLowerCase()),
   );
 };
 
 export const ADefault = Template.bind({});
 ADefault.args = {
-  placeholder: "default AutoComplete",
+  placeholder: 'default AutoComplete',
   fetchSuggestions: handleFetch,
 };
-ADefault.storyName = "default AutoComplete";
+ADefault.storyName = 'default AutoComplete';
 
 const handleRenderOption = (item: DataSourceType) => {
   const itemWithId = item as DataSourceType<AutoCompleteDataProps>;
@@ -59,7 +58,7 @@ const handleRenderOption = (item: DataSourceType) => {
 };
 export const BRenderTemplate = Template.bind({});
 BRenderTemplate.args = {
-  placeholder: "render your template",
+  placeholder: 'render your template',
   fetchSuggestions: handleFetch,
   renderOption: handleRenderOption,
 };
@@ -84,9 +83,9 @@ const renderOptionGithub = (item: DataSourceType) => {
   );
 };
 CAjaxComplete.args = {
-  placeholder: "input github username",
+  placeholder: 'input github username',
   fetchSuggestions: handleFetchPromise,
   renderOption: renderOptionGithub,
 };
 
-CAjaxComplete.storyName = "fetch from API";
+CAjaxComplete.storyName = 'fetch from API';

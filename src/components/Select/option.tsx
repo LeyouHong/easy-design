@@ -1,7 +1,7 @@
-import React, { FC, ReactNode, useContext } from "react";
-import classNames from "classnames";
-import { SelectContext } from "./select";
-import Icon from "../Icon";
+import React, { FC, ReactNode, useContext } from 'react';
+import classNames from 'classnames';
+import { SelectContext } from './select';
+import Icon from '../Icon';
 
 export interface SelectOptionProps {
   index?: string;
@@ -20,15 +20,15 @@ export const Option: FC<SelectOptionProps> = ({
 }) => {
   const { onSelect, selectedValues, multiple } = useContext(SelectContext);
   const isSelected = selectedValues.includes(value);
-  const classes = classNames("easy-select-item", {
-    "is-disabled": disabled,
-    "is-selected": isSelected,
+  const classes = classNames('easy-select-item', {
+    'is-disabled': disabled,
+    'is-selected': isSelected,
   });
 
   const handleClick = (
     e: React.MouseEvent,
     value: string,
-    isSelected: boolean
+    isSelected: boolean,
   ) => {
     e.preventDefault();
     if (onSelect && !disabled) {
@@ -42,12 +42,12 @@ export const Option: FC<SelectOptionProps> = ({
       className={classes}
       onClick={(e) => handleClick(e, value, isSelected)}
     >
-      {children || (label ? label : value)}
+      {children || label || value}
       {multiple && isSelected && <Icon icon="check" />}
     </li>
   );
 };
 
-Option.displayName = "Option";
+Option.displayName = 'Option';
 
 export default Option;

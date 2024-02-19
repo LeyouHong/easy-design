@@ -1,29 +1,28 @@
-import React from "react";
-import { Meta } from "@storybook/react";
-import { Upload } from "./upload";
-import Button from "../Button/button";
-import Icon from "../Icon/icon";
+import { Meta } from '@storybook/react';
+import { Upload } from './upload';
+import Button from '../Button/button';
+import Icon from '../Icon/icon';
 
 export default {
-  title: "Upload",
-  id: "Upload",
+  title: 'Upload',
+  id: 'Upload',
   component: Upload,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 } as Meta;
 
 export const ASimpleUpload = (args) => (
   <Upload {...args} action="https://www.mocky.io/v2/5cc8019d300000980a055e76">
     <Button size="lg" btnType="primary">
-      <Icon icon="upload" /> Default Upload{" "}
+      <Icon icon="upload" /> Default Upload{' '}
     </Button>
   </Upload>
 );
-ASimpleUpload.storyName = "Default Upload";
+ASimpleUpload.storyName = 'Default Upload';
 
 export const BCheckUpload = (args) => {
   const checkFileSize = (file: File) => {
     if (Math.round(file.size / 1024) > 50) {
-      alert("file too big");
+      alert('file too big');
       return false;
     }
     return true;
@@ -35,12 +34,12 @@ export const BCheckUpload = (args) => {
       beforeUpload={checkFileSize}
     >
       <Button size="lg" btnType="primary">
-        <Icon icon="upload" /> file larger than 50Kb{" "}
+        <Icon icon="upload" /> file larger than 50Kb{' '}
       </Button>
     </Upload>
   );
 };
-BCheckUpload.storyName = "Check file size";
+BCheckUpload.storyName = 'Check file size';
 
 export const CDragUpload = (args) => (
   <Upload
@@ -55,4 +54,4 @@ export const CDragUpload = (args) => (
     <p>drag to upload</p>
   </Upload>
 );
-CDragUpload.storyName = "drag to upload";
+CDragUpload.storyName = 'drag to upload';

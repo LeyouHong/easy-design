@@ -1,8 +1,9 @@
-import React, { FC, useRef, ChangeEvent, useState } from "react";
-import axios from "axios";
-import UploadList from "./uploadList";
-import Dragger from "./dragger";
-export type UploadFileStatus = "ready" | "uploading" | "success" | "error";
+import React, { FC, useRef, ChangeEvent, useState } from 'react';
+import axios from 'axios';
+import UploadList from './uploadList';
+import Dragger from './dragger';
+
+export type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'error';
 export interface UploadFile {
   uid: string;
   size: number;
@@ -55,15 +56,14 @@ export const Upload: FC<UploadProps> = (props) => {
   const [fileList, setFileList] = useState<UploadFile[]>(defaultFileList || []);
   const updateFileList = (
     updateFile: UploadFile,
-    updateObj: Partial<UploadFile>
+    updateObj: Partial<UploadFile>,
   ) => {
     setFileList((prevList) => {
       return prevList.map((file) => {
         if (file.uid === updateFile.uid) {
           return { ...file, ...updateObj };
-        } else {
-          return file;
         }
+        return file;
       });
     });
   };
@@ -73,13 +73,13 @@ export const Upload: FC<UploadProps> = (props) => {
     }
   };
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
+    const { files } = e.target;
     if (!files) {
       return;
     }
     uploadFiles(files);
     if (fileInput.current) {
-      fileInput.current.value = "";
+      fileInput.current.value = '';
     }
   };
   const handleRemove = (file: UploadFile) => {
@@ -90,11 +90,8 @@ export const Upload: FC<UploadProps> = (props) => {
       onRemove(file);
     }
   };
-  const uploadFiles = (files: FileList, test?: boolean) => {
-    let postFiles = Array.from(files);
-    if (test) {
-      console.log("drag", postFiles[0]);
-    }
+  const uploadFiles = (files: FileList) => {
+    const postFiles = Array.from(files);
     postFiles.forEach((file) => {
       if (!beforeUpload) {
         post(file);
@@ -111,9 +108,9 @@ export const Upload: FC<UploadProps> = (props) => {
     });
   };
   const post = (file: File) => {
-    let _file: UploadFile = {
-      uid: Date.now() + "upload-file",
-      status: "ready",
+    const _file: UploadFile = {
+      uid: `${Date.now()}upload-file`,
+      status: 'ready',
       name: file.name,
       size: file.size,
       percent: 0,
@@ -123,7 +120,7 @@ export const Upload: FC<UploadProps> = (props) => {
       return [_file, ...prevList];
     });
     const formData = new FormData();
-    formData.append(name || "file", file);
+    formData.append(name || 'file', file);
     if (data) {
       Object.keys(data).forEach((key) => {
         formData.append(key, data[key]);
@@ -133,14 +130,16 @@ export const Upload: FC<UploadProps> = (props) => {
       .post(action, formData, {
         headers: {
           ...headers,
-          "Content-Type": "multipart/form-data",
+          'Content-Type': 'multipart/form-data',
         },
         withCredentials,
         onUploadProgress: (e) => {
-          let percentage = e.total ? Math.round((e.loaded * 100) / e.total) : 0;
+          const percentage = e.total
+            ? Math.round((e.loaded * 100) / e.total)
+            : 0;
           if (percentage < 100) {
-            updateFileList(_file, { percent: percentage, status: "uploading" });
-            _file.status = "uploading";
+            updateFileList(_file, { percent: percentage, status: 'uploading' });
+            _file.status = 'uploading';
             _file.percent = percentage;
             if (onProgress) {
               onProgress(percentage, _file);
@@ -149,8 +148,8 @@ export const Upload: FC<UploadProps> = (props) => {
         },
       })
       .then((resp) => {
-        updateFileList(_file, { status: "success", response: resp.data });
-        _file.status = "success";
+        updateFileList(_file, { status: 'success', response: resp.data });
+        _file.status = 'success';
         _file.response = resp.data;
         if (onSuccess) {
           onSuccess(resp.data, _file);
@@ -160,8 +159,8 @@ export const Upload: FC<UploadProps> = (props) => {
         }
       })
       .catch((err) => {
-        updateFileList(_file, { status: "error", error: err });
-        _file.status = "error";
+        updateFileList(_file, { status: 'error', error: err });
+        _file.status = 'error';
         _file.error = err;
         if (onError) {
           onError(err, _file);
@@ -176,13 +175,13 @@ export const Upload: FC<UploadProps> = (props) => {
     <div className="easy-upload-component">
       <div
         className="easy-upload-input"
-        style={{ display: "inline-block" }}
+        style={{ display: 'inline-block' }}
         onClick={handleClick}
       >
         {drag ? (
           <Dragger
             onFile={(files) => {
-              uploadFiles(files, true);
+              uploadFiles(files);
             }}
           >
             {children}
@@ -192,7 +191,7 @@ export const Upload: FC<UploadProps> = (props) => {
         )}
         <input
           className="easy-file-input"
-          style={{ display: "none" }}
+          style={{ display: 'none' }}
           ref={fileInput}
           onChange={handleFileChange}
           type="file"
@@ -207,6 +206,6 @@ export const Upload: FC<UploadProps> = (props) => {
 };
 
 Upload.defaultProps = {
-  name: "file",
+  name: 'file',
 };
 export default Upload;

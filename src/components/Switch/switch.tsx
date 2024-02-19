@@ -1,8 +1,8 @@
-import React, { FC, ReactNode, useEffect, useState } from "react";
-import classNames from "classnames";
-import Icon from "../Icon";
+import { FC, ReactNode, useEffect, useState } from 'react';
+import classNames from 'classnames';
+import Icon from '../Icon';
 
-type SwitchSizeType = "lg" | "sm";
+type SwitchSizeType = 'lg' | 'sm';
 
 export interface SwitchProps {
   defaultChecked?: boolean;
@@ -32,7 +32,7 @@ export const Switch: FC<SwitchProps> = (props) => {
   const shouldDisabled = loading || disabled;
   //   console.log("checked:", checked);
   const [currentStatus, setCurrentStatus] = useState<boolean>(
-    !!(checked !== undefined ? checked : defaultChecked)
+    !!(checked !== undefined ? checked : defaultChecked),
   );
 
   useEffect(() => {
@@ -41,21 +41,21 @@ export const Switch: FC<SwitchProps> = (props) => {
     }
   }, [checked, currentStatus]);
 
-  const swithClass = classNames("easy-switch", className, {
-    "is-checked": currentStatus,
-    "not-checked": !currentStatus,
-    "is-disabled": shouldDisabled,
+  const swithClass = classNames('easy-switch', className, {
+    'is-checked': currentStatus,
+    'not-checked': !currentStatus,
+    'is-disabled': shouldDisabled,
     [`switch-${size}`]: size,
   });
 
-  const switchLeftClass = classNames("easy-switch-left", {
-    "is-checked": currentStatus,
-    "is-disabled": shouldDisabled,
+  const switchLeftClass = classNames('easy-switch-left', {
+    'is-checked': currentStatus,
+    'is-disabled': shouldDisabled,
   });
 
-  const switchRightClass = classNames("easy-switch-right", {
-    "is-checked": !currentStatus,
-    "is-disabled": shouldDisabled,
+  const switchRightClass = classNames('easy-switch-right', {
+    'is-checked': !currentStatus,
+    'is-disabled': shouldDisabled,
   });
 
   return (
@@ -67,7 +67,7 @@ export const Switch: FC<SwitchProps> = (props) => {
         setCurrentStatus(!currentStatus);
       }}
     >
-      <div style={{ display: "flex" }}>
+      <div style={{ display: 'flex' }}>
         <div className={switchLeftClass}>
           {currentStatus && checkedComponent}
         </div>
@@ -76,7 +76,7 @@ export const Switch: FC<SwitchProps> = (props) => {
             <Icon
               icon="spinner"
               spin
-              theme={currentStatus ? "primary" : "secondary"}
+              theme={currentStatus ? 'primary' : 'secondary'}
             />
           )}
         </div>
@@ -92,11 +92,11 @@ Switch.defaultProps = {
   defaultChecked: true,
   disabled: false,
   loading: false,
-  size: "sm",
+  size: 'sm',
   checkedComponent: <>&nbsp;&nbsp;</>,
   unCheckedComponent: <>&nbsp;&nbsp;</>,
 };
 
-Switch.displayName = "Switch";
+Switch.displayName = 'Switch';
 
 export default Switch;

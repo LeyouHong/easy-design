@@ -1,6 +1,11 @@
-import { RefObject, useEffect } from "react";
+import { RefObject, useEffect } from 'react';
 
-function useClickOutside(ref: RefObject<HTMLElement>, handler: Function) {
+type ClickHandler = (event: MouseEvent) => void;
+
+function useClickOutside(
+  ref: RefObject<HTMLElement>,
+  handler: ClickHandler,
+): void {
   useEffect(() => {
     const listener = (event: MouseEvent) => {
       if (!ref.current || ref.current.contains(event.target as HTMLElement)) {
@@ -8,9 +13,9 @@ function useClickOutside(ref: RefObject<HTMLElement>, handler: Function) {
       }
       handler(event);
     };
-    document.addEventListener("click", listener);
+    document.addEventListener('click', listener);
     return () => {
-      document.removeEventListener("click", listener);
+      document.removeEventListener('click', listener);
     };
   }, [ref, handler]);
 }

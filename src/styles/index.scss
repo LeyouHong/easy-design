@@ -1,47 +1,44 @@
 //config
-@import "variables";
+@import 'variables';
 
 //layout
-@import "reboot";
+@import 'reboot';
 
 //mixin
-@import "mixin";
+@import 'mixin';
 
 // animation
-@import "animation";
+@import 'animation';
 
 //button
-@import "../components/Button/style";
+@import '../components/Button/style';
 
 //alert
-@import "../components/Alert/style";
+@import '../components/Alert/style';
 
 //menu
-@import "../components/Menu/style";
+@import '../components/Menu/style';
 
 //Tabs
-@import "../components/Tabs/style";
+@import '../components/Tabs/style';
 
 //Input
-@import "../components/Input/style";
+@import '../components/Input/style';
 
 //AutoComplete
-@import "../components/AutoComplete/style";
+@import '../components/AutoComplete/style';
 
 //Select
-@import "../components/Select/styles";
+@import '../components/Select/styles';
 
 //Icon
-@import "../components/Icon/style";
+@import '../components/Icon/style';
 
 //Upload
-@import "../components/Upload/style";
+@import '../components/Upload/style';
 
 //Progress
-@import "../components/Progress/style";
+@import '../components/Progress/style';
 
 //Switch
-@import "../components/Switch/style";
-
-//Form
-@import "../components/Form/style";
+@import '../components/Switch/style';

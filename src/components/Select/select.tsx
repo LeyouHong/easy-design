@@ -6,13 +6,13 @@ import React, {
   FunctionComponentElement,
   useEffect,
   ReactNode,
-} from "react";
-import classNames from "classnames";
-import Input from "../Input";
-import useClickOutside from "../../hooks/useClickOutside";
-import Transition from "../Transition/transition";
-import { SelectOptionProps } from "./option";
-import Icon from "../Icon";
+} from 'react';
+import classNames from 'classnames';
+import Input from '../Input';
+import useClickOutside from '../../hooks/useClickOutside';
+import Transition from '../Transition/transition';
+import { SelectOptionProps } from './option';
+import Icon from '../Icon';
 
 export interface SelectProps {
   defaultValue?: string | string[];
@@ -25,13 +25,13 @@ export interface SelectProps {
   children?: ReactNode;
 }
 
-export interface ISelectContext {
+export interface SelectContextType {
   onSelect?: (value: string, isSelected?: boolean) => void;
   selectedValues: string[];
   multiple?: boolean;
 }
 
-export const SelectContext = createContext<ISelectContext>({
+export const SelectContext = createContext<SelectContextType>({
   selectedValues: [],
 });
 
@@ -50,11 +50,11 @@ export const Select: FC<SelectProps> = (props) => {
   const containerRef = useRef<HTMLInputElement>(null);
   const containerWidth = useRef(0);
   const [selectedValues, setSelectedValues] = useState<string[]>(
-    Array.isArray(defaultValue) ? defaultValue : []
+    Array.isArray(defaultValue) ? defaultValue : [],
   );
   const [menuOpen, setOpen] = useState(false);
   const [value, setValue] = useState(
-    typeof defaultValue === "string" ? defaultValue : ""
+    typeof defaultValue === 'string' ? defaultValue : '',
   );
 
   const handleOptionClick = (value: string, isSelected?: boolean) => {
@@ -65,7 +65,7 @@ export const Select: FC<SelectProps> = (props) => {
         onVisibleChange(false);
       }
     } else {
-      setValue("");
+      setValue('');
     }
     let updatedValues = [value];
     if (multiple) {
@@ -82,10 +82,8 @@ export const Select: FC<SelectProps> = (props) => {
     if (input.current) {
       input.current.focus();
       if (multiple && selectedValues.length > 0) {
-        input.current.placeholder = "";
-      } else {
-        if (placeholder) input.current.placeholder = placeholder;
-      }
+        input.current.placeholder = '';
+      } else if (placeholder) input.current.placeholder = placeholder;
     }
   }, [selectedValues, multiple, placeholder]);
 
@@ -103,10 +101,10 @@ export const Select: FC<SelectProps> = (props) => {
     }
   });
 
-  const passedContext: ISelectContext = {
+  const passedContext: SelectContextType = {
     onSelect: handleOptionClick,
-    selectedValues: selectedValues,
-    multiple: multiple,
+    selectedValues,
+    multiple,
   };
 
   const handleClick = (e: React.MouseEvent) => {
@@ -122,22 +120,21 @@ export const Select: FC<SelectProps> = (props) => {
   const generateOptions = () => {
     return React.Children.map(children, (child, i) => {
       const childElement = child as FunctionComponentElement<SelectOptionProps>;
-      if (childElement.type.displayName === "Option") {
+      if (childElement.type.displayName === 'Option') {
         return React.cloneElement(childElement, {
           index: `select-${i}`,
         });
-      } else {
-        console.error(
-          "Warning: Select has a child which is not a Option component"
-        );
       }
+      console.error(
+        'Warning: Select has a child which is not a Option component',
+      );
     });
   };
 
-  const containerClass = classNames("easy-select", {
-    "menu-is-open": menuOpen,
-    "is-disabled": disabled,
-    "is-multiple": multiple,
+  const containerClass = classNames('easy-select', {
+    'menu-is-open': menuOpen,
+    'is-disabled': disabled,
+    'is-multiple': multiple,
   });
 
   return (
@@ -183,8 +180,8 @@ export const Select: FC<SelectProps> = (props) => {
 };
 
 Select.defaultProps = {
-  name: "easy-select",
-  placeholder: "please select",
+  name: 'easy-select',
+  placeholder: 'please select',
 };
 
 export default Select;

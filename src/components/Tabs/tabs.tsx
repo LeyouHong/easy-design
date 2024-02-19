@@ -3,14 +3,14 @@ import React, {
   FunctionComponentElement,
   ReactNode,
   useState,
-} from "react";
-import classNames from "classnames";
-import { TabItemProps } from "./tabItem";
+} from 'react';
+import classNames from 'classnames';
+import { TabItemProps } from './tabItem';
 
 export interface TabsProps {
   defaultIndex?: number;
   className?: string;
-  type?: "line" | "card";
+  type?: 'line' | 'card';
   onSelect?: (index: number) => void;
   children?: ReactNode;
 }
@@ -22,25 +22,25 @@ export const Tabs: FC<TabsProps> = (props) => {
   const handleClick = (
     e: React.MouseEvent,
     index: number,
-    disabled: boolean | undefined
+    disabled: boolean | undefined,
   ) => {
     if (disabled) return;
     setActiveIndex(index);
     if (onSelect) onSelect(index);
   };
 
-  const navClass = classNames("easy-tabs-nav", {
-    "nav-line": type === "line",
-    "nav-card": type === "card",
+  const navClass = classNames('easy-tabs-nav', {
+    'nav-line': type === 'line',
+    'nav-card': type === 'card',
   });
 
   const renderNavLinks = () => {
     return React.Children.map(children, (child, index) => {
       const childElement = child as FunctionComponentElement<TabItemProps>;
       const { label, disabled } = childElement.props;
-      const classes = classNames("easy-tabs-nav-item", {
-        "is-active": activeIndex === index,
-        disabled: disabled,
+      const classes = classNames('easy-tabs-nav-item', {
+        'is-active': activeIndex === index,
+        disabled,
       });
 
       return (
@@ -71,7 +71,7 @@ export const Tabs: FC<TabsProps> = (props) => {
 
 Tabs.defaultProps = {
   defaultIndex: 0,
-  type: "line",
+  type: 'line',
 };
 
 export default Tabs;

@@ -1,13 +1,12 @@
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
-import Tabs from "./index";
+import { Meta, StoryFn } from '@storybook/react';
+import Tabs from './index';
 
 export default {
-  title: "Tabs",
-  id: "Tabs",
+  title: 'Tabs',
+  id: 'Tabs',
   component: Tabs,
   subcomponents: { Item: Tabs.Item },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 } as Meta;
 
 const Template: StoryFn<typeof Tabs> = (args) => (
@@ -21,10 +20,10 @@ const Template: StoryFn<typeof Tabs> = (args) => (
 );
 
 export const LineTabs = Template.bind({});
-LineTabs.storyName = "line tabs";
+LineTabs.storyName = 'line tabs';
 
 export const CardTabs = Template.bind({});
 CardTabs.args = {
-  type: "card",
+  type: 'card',
 };
-CardTabs.storyName = "card tabs";
+CardTabs.storyName = 'card tabs';

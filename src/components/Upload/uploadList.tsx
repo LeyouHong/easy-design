@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { UploadFile } from "./upload";
-import Icon from "../Icon/icon";
-import Progress from "../Progress/progress";
+import { FC } from 'react';
+import { UploadFile } from './upload';
+import Icon from '../Icon/icon';
+import Progress from '../Progress/progress';
 
 interface UploadListProps {
   fileList: UploadFile[];
@@ -21,13 +21,13 @@ export const UploadList: FC<UploadListProps> = (props) => {
               {item.name}
             </span>
             <span className="file-status">
-              {(item.status === "uploading" || item.status === "ready") && (
+              {(item.status === 'uploading' || item.status === 'ready') && (
                 <Icon icon="spinner" spin theme="primary" />
               )}
-              {item.status === "success" && (
+              {item.status === 'success' && (
                 <Icon icon="check-circle" theme="success" />
               )}
-              {item.status === "error" && (
+              {item.status === 'error' && (
                 <Icon icon="times-circle" theme="danger" />
               )}
             </span>
@@ -39,7 +39,7 @@ export const UploadList: FC<UploadListProps> = (props) => {
                 }}
               />
             </span>
-            {item.status === "uploading" && (
+            {item.status === 'uploading' && (
               <Progress percent={item.percent || 0} />
             )}
           </li>

@@ -1,13 +1,12 @@
-import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
-import Select from "./index";
+import { Meta, StoryFn } from '@storybook/react';
+import Select from './index';
 
 export default {
-  title: "Select",
-  id: "Select",
+  title: 'Select',
+  id: 'Select',
   component: Select,
   subcomponents: { Option: Select.Option },
-  tags: ["autodocs"],
+  tags: ['autodocs'],
 } as Meta;
 
 const Template: StoryFn<typeof Select> = (args) => (
@@ -21,16 +20,16 @@ const Template: StoryFn<typeof Select> = (args) => (
 );
 
 export const ADefaultSelect = Template.bind({});
-ADefaultSelect.storyName = "default Select";
+ADefaultSelect.storyName = 'default Select';
 
 export const BMultipleSelect = Template.bind({});
 BMultipleSelect.args = {
   multiple: true,
 };
-BMultipleSelect.storyName = "Multiple Select";
+BMultipleSelect.storyName = 'Multiple Select';
 
 export const CDisabledSelect = Template.bind({});
 CDisabledSelect.args = {
   disabled: true,
 };
-CDisabledSelect.storyName = "Disabled Select";
+CDisabledSelect.storyName = 'Disabled Select';

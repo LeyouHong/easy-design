@@ -1,9 +1,9 @@
-import React, { FC, useState } from "react";
-import classNames from "classnames";
-import Transition from "../Transition";
-import Icon from "../Icon";
+import { FC, useState } from 'react';
+import classNames from 'classnames';
+import Transition from '../Transition';
+import Icon from '../Icon';
 
-export type AlertType = "success" | "default" | "danger" | "warning";
+export type AlertType = 'success' | 'default' | 'danger' | 'warning';
 
 export interface AlertProps {
   title: string;
@@ -16,13 +16,13 @@ export interface AlertProps {
 export const Alert: FC<AlertProps> = (props) => {
   const [hide, setHide] = useState(false);
   const { title, description, type, onClose, closable } = props;
-  const classes = classNames("easy-alert", {
+  const classes = classNames('easy-alert', {
     [`easy-alert-${type}`]: type,
   });
-  const titleClass = classNames("easy-alert-title", {
-    "bold-title": description,
+  const titleClass = classNames('easy-alert-title', {
+    'bold-title': description,
   });
-  const handleClose = (e: React.MouseEvent) => {
+  const handleClose = () => {
     if (onClose) {
       onClose();
     }
@@ -48,7 +48,7 @@ export const Alert: FC<AlertProps> = (props) => {
 };
 
 Alert.defaultProps = {
-  type: "default",
+  type: 'default',
   closable: true,
 };
 export default Alert;
