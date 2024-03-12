@@ -1,0 +1,36 @@
+.easy-table {
+  width: 100%;
+  font-size: 14px;
+  padding: 24px;
+
+  tr {
+    border-bottom: 1px solid $table-border-color;
+  }
+
+  tr:hover {
+    background-color: $table-header-background;
+  }
+
+  .easy-table-header {
+    background-color: $table-header-background;
+  }
+
+  .easy-table-ceil {
+    padding: 16px;
+  }
+
+  .easy-table-ceil-header {
+    position: relative;
+  }
+
+  .easy-table-ceil-header:not(:first-child)::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 1px;
+    height: 1.6em;
+    background-color: $table-header-split-color;
+    transform: translateY(-50%);
+    content: '';
+  }
+}

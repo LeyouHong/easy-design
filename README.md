@@ -1,24 +1,24 @@
 ### Install
 
-~~~javascript
+```javascript
 npm i @leyouhong/easydesign
-~~~
+```
 
 ### how to use
 
-~~~javascript
+```javascript
 import '@leyouhong/easydesign/dist/index.css'
 import { Button } from '@leyouhong/easydesign'
 
 //run storybook
-npm run stroybook
+npm stroybook
 
 //run test
 npm test
 
 //build
-npm run build
+npm build
 
 //publish
-npm run publish
-~~~
+npm publish
+```

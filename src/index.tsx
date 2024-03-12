@@ -16,3 +16,4 @@ export { default as Tabs } from './components/Tabs';
 export { default as Alert } from './components/Alert';
 export { default as Select } from './components/Select';
 export { default as Switch } from './components/Switch';
+export { default as Table } from './components/Table';
