@@ -22,9 +22,12 @@
     "dist"
   ],
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/material": "^6.0.0-alpha.0",
     "async-validator": "^4.2.5",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",

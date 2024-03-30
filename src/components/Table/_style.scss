@@ -13,17 +13,45 @@
 
   .easy-table-header {
     background-color: $table-header-background;
+
+    .easy-table-sort {
+      display: inline-block;
+      position: absolute;
+      right: 16px;
+
+      .easy-table-sort-wrapper-up {
+        width: 0;
+        height: 0;
+        border: 4px solid;
+        border-color: transparent transparent $secondary transparent;
+        cursor: pointer;
+        margin-bottom: 4px;
+      }
+
+      .easy-table-sort-wrapper-down {
+        width: 0;
+        height: 0;
+        border: 4px solid;
+        border-color: $secondary transparent transparent transparent;
+        cursor: pointer;
+      }
+    }
   }
 
-  .easy-table-ceil {
+  .easy-table-cell {
     padding: 16px;
   }
 
-  .easy-table-ceil-header {
+  .easy-table-cell-header {
     position: relative;
   }
 
-  .easy-table-ceil-header:not(:first-child)::before {
+  .easy-table-action-cell {
+    width: 100px;
+    text-align: center;
+  }
+
+  .easy-table-cell-header:not(:first-child)::before {
     position: absolute;
     top: 50%;
     left: 0;
