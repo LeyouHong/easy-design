@@ -1,3 +1,9 @@
+### Intrudction
+
+```
+It's an React based UI library.
+```
+
 ### Install
 
 ```javascript
@@ -12,9 +18,6 @@ import { Button } from '@leyouhong/easydesign'
 
 //run storybook
 npm stroybook
-
-//run test
-npm test
 
 //build
 npm build

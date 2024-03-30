@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { MenuItem, IconButton, Typography } from '@mui/material';
 import { ActionButtonItem, ActionCellProps, TableActionColor } from '../types';
 import Icon from '../../Icon';
 import { TableActionMenu } from '../style';
-import { MenuItem, IconButton, Typography } from '@mui/material';
 import SingleActionButton from './singleActionButton';
 
 const ActionCell = <R,>({

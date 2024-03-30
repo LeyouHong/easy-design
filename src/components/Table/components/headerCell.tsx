@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { SortConfig, TableColumnItem, TreeRow } from '../types';
 import classNames from 'classnames';
+import { SortConfig, TableColumnItem, TreeRow } from '../types';
 import useColumnSort from './useColumnSort';
 import EventContext from '../context/eventConext';
 
@@ -40,7 +40,7 @@ const HeaderCell = <R extends TreeRow>({
                 direction === 'asc' ? 'var(--primary)' : 'var(--secondary)'
               } transparent`,
             }}
-          ></div>
+          />
           <div
             className="easy-table-sort-wrapper-down"
             onClick={handleChangeSort}
@@ -49,7 +49,7 @@ const HeaderCell = <R extends TreeRow>({
                 direction === 'desc' ? 'var(--primary)' : 'var(--secondary)'
               } transparent transparent transparent`,
             }}
-          ></div>
+          />
         </div>
       )}
     </th>

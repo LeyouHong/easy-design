@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
+import { useState } from 'react';
 import Table from './index';
 import Icon from '../Icon';
-import { useState } from 'react';
 
 export default {
   title: 'Table',

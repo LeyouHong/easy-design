@@ -33,9 +33,8 @@ const SingleActionButton = <R,>({
   const displayText = useMemo(() => {
     if (typeof text === 'function') {
       return text(row);
-    } else {
-      return text;
     }
+    return text;
   }, [row, text]);
 
   return (

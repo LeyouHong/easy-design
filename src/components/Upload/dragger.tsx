@@ -1,4 +1,4 @@
-import { FC, useState, DragEvent, ReactNode } from 'react';
+import React, { FC, useState, DragEvent, ReactNode } from 'react';
 import classNames from 'classnames';
 
 interface DraggerProps {

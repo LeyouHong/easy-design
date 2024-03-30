@@ -25,10 +25,10 @@ const useColumnSort: <R extends TreeRow>(
 
   const handleChangeSort = (): void => {
     if (direction === '') {
-      //unsort ---> desc
+      // unsort ---> desc
       sort?.onSortChange?.({ asc: '', desc: field.toString() });
     } else if (direction === 'desc') {
-      //desc ---> asc
+      // desc ---> asc
       sort?.onSortChange?.({ asc: field.toString(), desc: '' });
     } else if (direction === 'asc') {
       // asc ---> unsort
