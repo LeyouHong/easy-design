@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import Icon from '../Icon';
 
@@ -16,7 +16,7 @@ export interface SwitchProps {
   unCheckedComponent?: ReactNode;
 }
 
-export const Switch: FC<SwitchProps> = (props) => {
+export const Switch: React.FC<SwitchProps> = (props) => {
   const {
     defaultChecked,
     checked,

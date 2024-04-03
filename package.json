@@ -1,6 +1,6 @@
 {
   "name": "@leyouhong/easydesign",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "React components library",
   "author": "Leyou Hong",
   "private": false,
@@ -32,11 +32,15 @@
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
     "lodash-es": "^4.17.21",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "use-query-params": "^2.2.1"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^6.0.0-alpha.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "deploy": "gh-pages -d storybook-static",
@@ -46,7 +50,7 @@
     "build": "npm run clean && npm run build-ts && npm run build-css",
     "eject": "react-scripts eject",
     "build-ts": "tsc -p tsconfig.build.json",
-    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
+    "build-css": "sass ./src/styles/index.scss ./dist/index.css",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepublishOnly": "npm run lint && npm run build"
@@ -117,7 +121,6 @@
     "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.2",
-    "node-sass": "^9.0.0",
     "prettier": "^3.2.5",
     "prop-types": "15.8.1",
     "react": "^18.2.0",

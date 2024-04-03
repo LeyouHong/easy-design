@@ -1,4 +1,8 @@
-import { TypographyProps, ButtonProps } from '@mui/material';
+import {
+  TypographyProps,
+  ButtonProps,
+  TablePaginationProps,
+} from '@mui/material';
 
 export interface TreeRow {
   [key: string]: any;
@@ -8,6 +12,7 @@ export interface TableProps<R extends TreeRow> {
   rowKey: string;
   rows: R[];
   columns: TableColumnItem<R>[];
+  pagination?: TablePaginationConfig | false;
   sort?: SortConfig;
   actions: ActionButtonItem<R>[];
 }
@@ -64,7 +69,6 @@ export type TableEvent<R = Record<string, unknown>> = Partial<{
 }>;
 
 // Action Type
-
 export type TableActionColor = Extract<
   ButtonProps['color'],
   TypographyProps['color']
@@ -89,3 +93,38 @@ export interface ActionCellProps<R> {
   actions: ActionButtonItem<R>[];
   row: R;
 }
+
+// Pagination
+export type PagerProps = {
+  skip: number;
+  limit: number;
+  onSkipChange?: (skip: number) => void;
+  onRowsPerPageChange?: (num: number) => void;
+};
+
+export type PaginationMode = 'client' | 'server';
+
+export type PaginationModeConfig = {
+  mode?: PaginationMode;
+};
+
+export type EnableQueryPagination = PaginationModeConfig & {
+  enableQuery: true;
+  total: number;
+} & Partial<PagerProps>;
+
+export type DisableQueryPagination = PaginationModeConfig & {
+  enableQuery?: false;
+  total: number;
+} & PagerProps;
+
+export type TablePaginationConfig = (
+  | EnableQueryPagination
+  | DisableQueryPagination
+) &
+  Pick<TablePaginationProps, 'rowsPerPageOptions'>;
+
+export type QueryPaginationProps = TablePaginationConfig & {
+  query: any;
+  setQuery: any;
+};

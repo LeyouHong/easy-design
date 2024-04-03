@@ -1,4 +1,4 @@
-import React, { FC, useState, DragEvent, ReactNode } from 'react';
+import React, { useState, DragEvent, ReactNode } from 'react';
 import classNames from 'classnames';
 
 interface DraggerProps {
@@ -6,7 +6,7 @@ interface DraggerProps {
   children?: ReactNode;
 }
 
-export const Dragger: FC<DraggerProps> = (props) => {
+export const Dragger: React.FC<DraggerProps> = (props) => {
   const { onFile, children } = props;
   const [dragOver, setDragOver] = useState(false);
   const klass = classNames('easy-uploader-dragger', {

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import Transition from '../Transition';
 import Icon from '../Icon';
@@ -13,7 +13,7 @@ export interface AlertProps {
   closable?: boolean;
 }
 
-export const Alert: FC<AlertProps> = (props) => {
+export const Alert: React.FC<AlertProps> = (props) => {
   const [hide, setHide] = useState(false);
   const { title, description, type, onClose, closable } = props;
   const classes = classNames('easy-alert', {
